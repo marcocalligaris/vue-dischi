@@ -18,6 +18,6 @@ export default {
     @import '../assets/scss/vars';
     main {
         background-color: $dark_grey;
-        height: 600px;
+        height: auto;
     }
 </style>
