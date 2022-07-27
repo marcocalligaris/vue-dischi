@@ -7,6 +7,7 @@
             class="column"
             >
                 <AlbumCard
+                :albums="albums"
                 :image="album['poster']"
                 :title="album['title']"
                 :author="album['author']"
@@ -18,21 +19,14 @@
 </template>
     
 <script>
-    import axios from 'axios';
-    import AlbumCard from './AlbumCard.vue';
-    export default {
+
+import AlbumCard from './AlbumCard.vue';
+export default {
     name: "AlbumsSection",
-    components: { AlbumCard },
-    data() {
-        return {
-            albums: []
-        };
+    props: {
+        albums: Array,
     },
-    mounted() {
-        axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((res) => {
-            this.albums = res.data.response;
-        });
-    },
+    components: { AlbumCard }, 
 }
 </script>
 

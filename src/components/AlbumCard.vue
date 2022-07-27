@@ -11,11 +11,12 @@
 export default {
     name: 'AlbumCard',
     props: {
+        albums: Array,
         author: String,
         image: String,
         title: String,
         year: String,
-    }
+    },
 }
 </script>
 <style lang="scss" scoped>
