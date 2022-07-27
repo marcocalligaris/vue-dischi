@@ -1,7 +1,7 @@
 <template>
     <main>
         <section id="albums">            
-            <AlbumsSection />
+            <AlbumsSection :albums="albums" />
         </section>
     </main>
 </template>
@@ -10,6 +10,9 @@
 import AlbumsSection from './AlbumsSection.vue';
 export default {
     name: "BaseMain",
+    props: {
+        albums: Array,
+    },
     components: { AlbumsSection }
 }
 </script>
@@ -17,7 +20,6 @@ export default {
 <style lang="scss" scoped>
     @import '../assets/scss/vars';
     main {
-        background-color: $dark_grey;
         height: auto;
     }
 </style>

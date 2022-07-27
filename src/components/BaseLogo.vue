@@ -12,7 +12,7 @@
 
 <style lang="scss" scoped>
     img {
-        width: 50px;
-        height: auto;
+        width: 40px;
+        height: 40px;
     }
 </style>

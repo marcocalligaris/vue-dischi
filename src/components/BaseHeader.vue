@@ -1,9 +1,7 @@
 <template>
-    <header class="py-2 px-4">
-        <nav class="d-flex align-items-center">
+    <div class="d-flex align-items-center py-2 px-4 ">
             <BaseLogo />
-        </nav>
-    </header>
+    </div>
 </template>
 
 <script>
@@ -18,8 +16,9 @@
 
 <style lang="scss" scoped>
 @import '../assets/scss/vars';
-header {
+div {
     background-color: $grey;
     width: 100%;
-}
+    height: 80px;
+    }
 </style>
