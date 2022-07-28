@@ -1,20 +1,36 @@
 <template>
-    <select class="form-select form-select-sm">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+<div>
+    <select 
+        class="form-select form-select-sm" v-model="selectedOption" @change="emitChange">
+        <option 
+        value="">{{ placeholder || 'Select an option' }}</option>
+        <option 
+        v-for="option in options" 
+        :key="option.value || option" 
+        :value="option.value || option"
+        >
+        {{ option.label || option }}
+        </option>
     </select>
+</div>
 </template>
 
 <script>
-export default {
-    name: 'BaseSelect',
-}
-</script>
-
-<style lang="scss" scoped>
-    select {
-        width: 300px;
+    export default {
+        name: 'BaseSelect',
+            data() {
+                return {
+                    selectedOption: ''
+                };
+            },
+        props: {
+            placeholder: String,
+            options: Array,
+        },
+        methods: {
+            emitChange() {
+                this.$emit('option-change', this.selectedOption);
+            }
+        },
     }
-</style>
+</script>

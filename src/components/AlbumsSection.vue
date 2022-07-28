@@ -2,7 +2,7 @@
     <div class="container">
         <div class=" albums-list row py-3 gy-3">
             <div
-            v-for="album in albums"
+            v-for="album in filteredAlbums"
             :key="album.i"
             class="column"
             >
@@ -19,14 +19,20 @@
 </template>
     
 <script>
-
 import AlbumCard from './AlbumCard.vue';
 export default {
     name: "AlbumsSection",
+    components: { AlbumCard }, 
     props: {
         albums: Array,
+        selectedGen: String,
     },
-    components: { AlbumCard }, 
+    computed: {
+        filteredAlbums() {
+            if(!this.selectedGen) return this.albums;
+            return this.albums.filter((album) => album.genre === this.selectedGen);
+            },
+    },
 }
 </script>
 

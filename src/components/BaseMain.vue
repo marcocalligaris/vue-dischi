@@ -1,7 +1,7 @@
 <template>
     <main>
         <section id="albums">            
-            <AlbumsSection :albums="albums" />
+            <AlbumsSection :albums="albums" :selectedGen="selectedGen" />
         </section>
     </main>
 </template>
@@ -12,6 +12,7 @@ export default {
     name: "BaseMain",
     props: {
         albums: Array,
+        selectedGen: String,
     },
     components: { AlbumsSection }
 }

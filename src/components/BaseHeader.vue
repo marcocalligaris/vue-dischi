@@ -1,9 +1,7 @@
 <template>
     <nav class=" px-4 d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-            <BaseLogo />
-        </div>
-        <BaseSelect />
+        <BaseLogo />
+        <BaseSelect placeholder="Seleziona Genere" :options="genresOptions" @option-change="emitGenreChange" />
     </nav>
 </template>
 
@@ -15,8 +13,16 @@
         components: {
             BaseLogo,
             BaseSelect,
+        },
+        props: {
+            genresOptions: Array,
+        },
+        methods: {
+            emitGenreChange(genre) {
+                this.$emit('genre-change', genre);
+            },
         }
-    }
+    };
 </script>
 
 <style lang="scss" scoped>
